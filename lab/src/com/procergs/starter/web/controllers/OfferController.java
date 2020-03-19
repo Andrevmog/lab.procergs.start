@@ -1,9 +1,9 @@
 package com.procergs.starter.web.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,29 +17,29 @@ import com.procergs.starter.domain.Offer;
 
 @WebServlet("/teste")
 public class OfferController extends HttpServlet {
-
-
+	
 	private static final long serialVersionUID = -6794238896686584661L;
-
+	List<Offer> offers = new OfferDao().getList();
+	
+	
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, 
-	NullPointerException
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		
-		PrintWriter writer = resp.getWriter();
-		writer.println("<html><body>");
-		writer.println("Offers: <br/>");	
-		List<Offer> offers = new OfferDao().getList();	
-		writer.println("<ul>");
-		for(Offer offer : offers) {
-			writer.println("<li>"+ offer.getId()+" "+
-					offer.getProcurementNumber()+" "+
-					offer.getProcurementYear()+" "+
-					offer.getIdCompany()+" "+
-					offer.getCoordinator()+"</li>");					
-		}
-		writer.println("</ul>");
-		writer.println("</body></html>");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("inicio.jsp");
+		
+		req.setAttribute("lista", offers);
+		
+		dispatcher.forward(req, resp);	
+			
 	}
-
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	
+	
+	}
+	
 }
