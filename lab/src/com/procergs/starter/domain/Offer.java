@@ -3,10 +3,10 @@ package com.procergs.starter.domain;
 public class Offer {
 
 	public String procurementNumber;
-	public Integer procurementYear;
-	public Long idCompany;
+	public int procurementYear;
+	public long idCompany;
 	public String coordinator;
-	public Long id;
+	public long id;
 
 	public String getProcurementNumber() {
 		return procurementNumber;
@@ -16,19 +16,19 @@ public class Offer {
 		this.procurementNumber = procurementNumber;
 	}
 
-	public Integer getProcurementYear() {
+	public int getProcurementYear() {
 		return procurementYear;
 	}
 
-	public void setProcurementYear(Integer procurementYear) {
+	public void setProcurementYear(int procurementYear) {
 		this.procurementYear = procurementYear;
 	}
 
-	public Long getIdCompany() {
+	public long getIdCompany() {
 		return idCompany;
 	}
 
-	public void setIdCompany(Long idCompany) {
+	public void setIdCompany(long idCompany) {
 		this.idCompany = idCompany;
 	}
 
@@ -40,11 +40,11 @@ public class Offer {
 		this.coordinator = coordinator;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

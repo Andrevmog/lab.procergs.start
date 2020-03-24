@@ -21,25 +21,20 @@ public class OfferController extends HttpServlet {
 	private static final long serialVersionUID = -6794238896686584661L;
 	List<Offer> offers = new OfferDao().getList();
 	
-	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("inicio.jsp");
 		
-		req.setAttribute("lista", offers);
+		req.setAttribute("offers", offers);
 		
 		dispatcher.forward(req, resp);	
-			
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-	
 	}
 	
 }

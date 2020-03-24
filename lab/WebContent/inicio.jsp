@@ -1,30 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" %>
+	
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <! DOCTYPE html>
-    <%@page import="com.procergs.starter.domain.Offer" %>
-    <%@page import="com.procergs.starter.db.OfferDao" %>
-    <%@page import="com.procergs.starter.web.controllers.OfferController" %>
-    <%@page import="java.util.List"%>
+
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Início</title>
 </head>
-<body>
-	<form method="post" action="teste">
-		<input type="submit" value="Lista">
-	</form>
-	
-	
-<%
-List<Offer> lista = (List<Offer>)request.getAttribute("lista");
-
-for(Offer offer : lista) {
-	out.println(offer.getId()+" "+
-			offer.getProcurementNumber()+" "+
-			offer.getProcurementYear()+" "+
-			offer.getIdCompany()+" "+
-			offer.getCoordinator()+"<br/>");					
-}
-
-%>
+<body>	
+<c:forEach items="${offers}" var="item">
+  <c:out value="${item.id}"/>
+  <c:out value="${item.procurementNumber}"/>
+  <c:out value="${item.procurementYear}"/>
+  <c:out value="${item.idCompany}"/>
+  <c:out value="${item.coordinator}"/>
+</c:forEach>	
 </body>
 </html>
